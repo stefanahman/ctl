@@ -1,0 +1,89 @@
+% Custom LaTeX Definitions File
+% Author: Assad Ebrahim, assad.ebrahim@mathscitech.org
+% Created: Aug 4, 2008
+% License: This file can be used freely provided the author attribution 
+%          and this license information is maintained.
+% ----------------------------------------------------
+
+% PACKAGES AND ENVIRONMENTS BLOCK: LIST HERE PACKAGES WITH DESIRED FUNCTIONALITY %
+
+\usepackage[utf8]{inputenc}
+
+% Symbology
+\usepackage{amsfonts} % for $\mathbb{R}$ reals, $\mathbb{Z}$ integers, $\mathbb{R}^n$ $n$-dim. spaces
+\usepackage{amsmath}  % for \eqref
+\usepackage{amssymb}  % for full AMS mathematics symbology
+
+% Graphics
+\usepackage[dvips]{graphics}       	%for embedding graphics files
+\usepackage{graphicx}  				%for \includegraphics{file.eps}  % note EPS format
+		% (can make a PNG into EPS using png2EPS)
+
+% Set Margins:
+%\usepackage{fullpage}  %for not so huge BOOK margins.  Gives std 1" margins all around.
+		% my opinion: this is much less pleasantly readable.
+% Manually setting margins
+%	\addtolength{\oddsidemargin}{-.375in}
+%	\addtolength{\evensidemargin}{-.375in}
+%	\addtolength{\textwidth}{.75in}
+%	\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}  %reduces bottom margin -- more per page, but still good side margins
+
+% Code Listings and formatted dynamically included program listings
+\usepackage{verbatim}  	%for formatting dynamically included program listings
+						% e.g. {\footnotesize\verbatiminput{c:/tmp/file.tex}} 
+
+% Defined Code Listing Environment
+% for creating environments, see http://theoval.cmp.uea.ac.uk/~nlct/latex/novices/newenvironment.html
+\newenvironment{code}[1]  % takes pathfilenametocode as argument
+{
+{\footnotesize \verbatiminput{#1}}% begin code
+{}
+}    % end code
+
+\newenvironment{proof}%[1] % takes Proof Title as (optional) argument
+{
+{Proof\\ 
+%\begin{proof}{#1}\end{proof} 
+\footnotesize}
+{}
+}
+
+% MACRO DEFINITIONS %
+\newtheorem{theorem}{Theorem} %[section]
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{keypoint}[theorem]{Key Point}
+\newtheorem{keyconcept}[theorem]{Key Concept}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{algorithm}[theorem]{Algorithm}
+%\newtheorem{proof}[theorem]{Proof}
+%Example: 
+%	\begin{lemma}\label{theorem_trivial}<add your Lemma Name>\end{lemma}
+%	<add your lemma text>
+%   Later, to refer to the label: Theorem \ref{theorem_trivial}.  Note run LaTeX twice to get refs correct.
+
+% NUMBERING CONVENTIONS %
+%\numberwithin{equation}{section}  % or {subsection}  % gives equation numbering by section of text
+%\numberwithin{theorem}{section}   % numbering choice for theorems, etc.
+
+% MACRO COMMANDS %already defined: \lim, \sin, \min, \arctan, etc.
+\newcommand{\qed}{\ensuremath{_\square}} %for end of proof symbol
+\newcommand{\lcm}{\ensuremath{\mbox{lcm} }} % LCM -- because \gcd is defined
+\newcommand{\imply}{\Longrightarrow} % for =>
+\newcommand{\limply}{\Longleftarrow} % for =>
+\newcommand{\biimply}{\Leftrightarrow} % for <=>
+\newcommand{\goesto}{\rightarrow} % for limit ->
+\newcommand{\fuzzy}[1]{\ensuremath{ \underset{\sim}{#1} }} % usage: \fuzzy{A} for A under-tilde
+
+%Macro for: \begin{equation} formula_text \end{equation}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+%Labeling equations:  \be ... \label{labelname} \ee
+%Later, to refer to the label: \ref{labelname} or \eqref{labelname}

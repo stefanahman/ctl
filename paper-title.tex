@@ -1,0 +1,65 @@
+% paper-title.tex -- example of modular LaTeX
+% Assad Ebrahim
+% May 13, 2010
+% ***********************************
+
+% THIS DOCUMENT HOLDS BOILERPLATE FOR YOUR TITLE PAGE AND BUILDS YOUR PAPER
+% 	- pulls in your authors file (see line 15)
+% 	- pulls in your TeX definitions file (see line 20)
+% 	- pulls in your content file(s) to fill the body (see line 42}
+%	- pulls in your bibliography (see line 46)
+
+% title page material
+\documentclass[11pt,a4paper,oneside]{article}
+\usepackage[utf8]{inputenc}
+\title{Title}
+\input{authors.tex}
+\date{\today}  % static date of your choice, and an automated revision date
+
+%%% INCLUDE macros, headers, and so on -- MODULE
+\input{_TeXdefs}  % include from separate file
+
+% \pagestyle{myheadings} % use page headers
+% puts headers on both pages alternating even and odd numbers.  \markboth{even-text}{odd-text}
+% \markboth{Modular Examples for LaTeX, August 2008, Assad Ebrahim}{(Odd Numbered Pages), (Additional Text), (Final Text)}
+
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.08in}
+
+%%%%%%% DOCUMENT BEGIN
+\begin{document}
+\bibliographystyle{swealpha}
+%\bibliographystyle{alpha}  % BibTeX bibliography.  Available styles: plain, alpha, unsrt, abbrv
+\maketitle	% makes title
+\begin{center}
+KTH Kista, Stockholm
+\end{center}
+\thispagestyle{empty}
+
+\newpage
+\renewcommand{\contentsname}{Innehållsförteckning}
+\tableofcontents
+\thispagestyle{empty}
+
+\newpage  % separates table of contents from body of document
+
+% vvvvvvvvvvvvvv  BEGIN BODY  vvvvvvvvvvvvvvvvvvv
+
+% \setcounter{page}{1}
+
+% PULL IN AND ORDER YOUR CONTENT MODULES HERE
+
+\input{inledning.tex}
+\input{problem-och-syfte.tex}
+\input{genomforande.tex}
+\input{resultat.tex}
+
+
+% ^^^^^^^^^^^^^   END OF BODY   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+\newpage  % if you wish your References section on a separate page
+\renewcommand\refname{Referenser}
+\clearpage
+\addcontentsline{toc}{section}{Referenser}
+\bibliography{bibliog}
+\end{document}
+%%%%%%% DOCUMENT END
