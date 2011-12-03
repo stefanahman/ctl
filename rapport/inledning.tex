@@ -1,5 +1,5 @@
 \section{Inledning}
-För att kunna kontrollera om en temporallogisk formel phi gäller i ett visst tillstånd \textit{s} i en given modell M kan man använda sig
+För att kunna kontrollera om en temporallogisk formel $\varphi$ gäller i ett visst tillstånd \textit{s} i en given modell $\mathcal{M}$ kan man använda sig
 av en modellprovare. Detta programverktyg måste i denna laboration implementeras att hantera följande delmängd CTL-reglerna (Computation tree
 logic):
 
@@ -11,6 +11,4 @@ $\phi ::= p \mid \neg p \mid \phi \wedge \phi \mid \phi \vee \phi \mid \textsf{A
 
 \end{center}
 
-För att kunna kontrollera om en temporallogisk formel phi gäller i ett visst tillstånd \textit{s} i en given modell M kan man använda sig 
-av en modellprovare. Detta programverktyg måste i denna laboration implementeras att hantera följande delmängd CTL-reglerna (Computation tree 
-logic):
+Modellen som ska kontrolleras kan beskrivas med en tillståndsgraf, där CTL används för att sätta upp villkor som måste uppfyllas av tillståndsgrafen samt tillstånden. Uppkomsten av oönskade stigar kan undvikas med specifika regler. Detta kan göras i denna laboration med bevissökning då bevissystemet som används är sunt och fullständigt och tillåter ändligt många bevisträd.

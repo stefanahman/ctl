@@ -6,13 +6,14 @@
 % THIS DOCUMENT HOLDS BOILERPLATE FOR YOUR TITLE PAGE AND BUILDS YOUR PAPER
 % 	- pulls in your authors file (see line 15)
 % 	- pulls in your TeX definitions file (see line 20)
-% 	- pulls in your content file(s) to fill the body (see line 42}
+% 	- pulls in your content file(s) to fill the body (see line 42}	
 %	- pulls in your bibliography (see line 46)
 
 % title page material
-\documentclass[11pt,a4paper,oneside]{article}
+\documentclass[11pt,a4paper,oneside,pdftex]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{amssymb}
+\usepackage{listings}
 
 \title{Title}
 \input{authors.tex}
@@ -27,6 +28,8 @@
 
 \setlength{\parindent}{0.0in}
 \setlength{\parskip}{0.08in}
+
+\graphicspath{{./images/}}
 
 %%%%%%% DOCUMENT BEGIN
 \begin{document}
