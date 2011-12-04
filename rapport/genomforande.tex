@@ -74,7 +74,7 @@ Detta beskrivs i figur~\ref{fig:ctl-states} där egenskperna i tillstånden är:
 
 \begin{figure}[ht]
 \includegraphics[width=\textwidth]{states.eps}
-\caption{Tillståndsgraf}
+\caption{Tillståndsgraf för trafikljus}
 \label{fig:ctl-states}
 \end{figure}
 
@@ -131,6 +131,7 @@ Sanningstilldelningen (\textit{L}):
 \>[\textit{s4}, [\textit{y,f}]],\\
 \>[\textit{s5}, [\textit{o}]]].\\
 \end{tabbing}
+\clearpage
 
 För denna modell skapades två stycken CTL-formler, en som stämmer och en som inte stämmer.
 Formeln \texttt{ef(ag(ex(o)))} är korrekt och innebär: "det finns en stig där det så småningom alltid finns en stig där det i något nästa tillstånd gäller att trafikljuset är avstängt", dvs. Var vi än är kan trafikljuset på något sätt stängas av. Den formel som är felaktig \texttt{and(r,ax(g))} innebär: det finns ett tillstånd där bara rött gäller och i nästa tillstånd gäller bara grönt. Detta betyder att man skulle kunna gå direkt från rött till grönt vilket inte stämmer då den enda vägen dit är via tillståndet då både röd och gul signal ges.
