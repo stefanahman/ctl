@@ -68,3 +68,10 @@ De resterande reglerna från figur~\ref{fig:ctl-regler} implementerades på likn
 
 \subsection{Modell}\label{sub:modell}
 
+Den icke-triviala modellen som skapades beskiver ett trafikljus olika tillstånd. Ett trafikjus har följande sekvenser: rött \textrightarrow rött/gult \textrightarrow grönt, grönt \textrightarrow gult \textrightarrow rött, gult \textrightarrow släckt \textrightarrow gult... och avstängt. Dessa sekvenser kan beskrivas som en modell med övergångar mellan de olika tillstånden.
+
+I tillståndet “s0” kan trafikljuset lysa konstant rött, släckas “s5” eller gå till rött/gult “s1”. Från “s1” kan släckt tillstånd “s5”, rött “s0” och grönt “s3” nås. Då trafikljuset lyser gult i “s2” kan tillståndet rött “s0”, grönt “s3” och släckt “s5” nås. I tillståndet grönt kan det stå still, gå till gult “s2” eller släckas “s5”. Vid tekniska problem kan det blinka gult “s4”, från detta tillstånd kan endast släckt “s5” nås direkt. Då trafikljuset är släckt “s5” och ska tändas kan rött “s0” och blinkande gult “s4” nås som nästkommande tillstånd. Genom att kombinera dessa övergångar mellan tillstånden till stigar kan trafikljusets alla sekvenser skapas.
+
+Egenskperna i tillstånden är: \textit{r = rött, y = gult, g = grönt, o = släckt och f = blinkande}.
+
+BILD
