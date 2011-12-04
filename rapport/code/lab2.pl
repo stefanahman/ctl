@@ -15,6 +15,7 @@ verify(Input) :-
 check(_, L, S, [], X) :- 
 	member([S,Srest], L),
 	member(X,Srest).
+	
 % neg p	
 check(_, L, S, [], neg(X)) :-
 	member([S,Srest], L),
@@ -45,7 +46,6 @@ check(T, L, S, [], ex(X)) :-
 % AG 1
 check(_, _, S, U, ag(_)) :-
 	member(S,U).
-
 % AG 2
 check(T, L, S, U, ag(X)) :-
 	not(member(S,U)),
@@ -56,7 +56,6 @@ check(T, L, S, U, ag(X)) :-
 % EG 1
 check(_, _, S, U, eg(_)) :-
 	member(S,U).
-
 % EG 2	
 check(T, L, S, U, eg(X)) :-
 	not(member(S,U)),
@@ -68,7 +67,6 @@ check(T, L, S, U, eg(X)) :-
 check(T, L, S, U, ef(X)) :-
 	not(member(S,U)),
 	check(T, L, S, [], X).
-
 % EF 2
 check(T, L, S, U, ef(X)) :-
 	not(member(S,U)),	
@@ -79,7 +77,6 @@ check(T, L, S, U, ef(X)) :-
 check(T, L, S, U, af(X)) :-
 	not(member(S,U)),
 	check(T, L, S, [], X).
-
 % AF 2
 check(T, L, S, U, af(X)) :-
 	not(member(S,U)),
@@ -87,7 +84,6 @@ check(T, L, S, U, af(X)) :-
 	acheck(T, L, Srest, [S|U], af(X)).
 	
 %%% Helper functions %%%
-
 acheck(_, _, [], _, _).
 acheck(T, L, [S|Sl], U, X) :-
 	check(T, L, S, U, X),
