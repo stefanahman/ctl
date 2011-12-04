@@ -1,1 +1,17 @@
 \section{Resultat}
+\begin{itemize}
+\item (a) Vad skiljer labbens version av CTL från bokens version?
+
+Labbens implementation av CTL kan inte hantera negation av CTL-formler, “U” Until, och
+“implicerar”
+
+\item (b) Hur kan man utöka modellprovaren så att den hanterar bokens CTL?
+
+För att kunna hantera negerade formler krävs det att De Morgans lagar implementeras i
+modelltestaren. 
+
+\item (c) Hur hanterade ni variabelt antal premisser (som i AX-regeln)?
+
+Men en hjälpfunktion “acheck” som rekursivt behandlar alla states som kan nås från det aktuella tillståndet. Kontrollerar alla dessa möjliga tillstånd med den ursprungliga funktionen “check” där alla tester måste evalueras till true.
+
+\end{itemize}
