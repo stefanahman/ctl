@@ -6,6 +6,7 @@ Modellprovaren skrevs i prolog då det är ett lämpligt programmeringsspråk f�
 \caption{Regler för CTL}
 \label{fig:ctl-regler}
 \end{figure}
+
 \subsection{Modellprovaren}\label{sub:modellprovaren}
 
 För att kunna testa modellprovaren fanns flertalet tester att tillgå som bestod av en liststruktur för att beskriva tillståndens egenskaper och grannar, detta beskrivs tydligare under Modell.
@@ -68,10 +69,68 @@ De resterande reglerna från figur~\ref{fig:ctl-regler} implementerades på likn
 
 \subsection{Modell}\label{sub:modell}
 
-Den icke-triviala modellen som skapades beskiver ett trafikljus olika tillstånd. Ett trafikjus har följande sekvenser: rött \textrightarrow rött/gult \textrightarrow grönt, grönt \textrightarrow gult \textrightarrow rött, gult \textrightarrow släckt \textrightarrow gult... och avstängt. Dessa sekvenser kan beskrivas som en modell med övergångar mellan de olika tillstånden.
+Den icke-triviala modellen som skapades beskiver ett trafikljus olika tillstånd. Ett trafikjus har följande sekvenser: rött \textrightarrow\ rött/gult \textrightarrow\ grönt, grönt \textrightarrow\ gult \textrightarrow\ rött, gult \textrightarrow\ släckt  \textrightarrow\ gult... och avstängt. Dessa sekvenser kan beskrivas som en modell med övergångar mellan de olika tillstånden.
 
 I tillståndet “s0” kan trafikljuset lysa konstant rött, släckas “s5” eller gå till rött/gult “s1”. Från “s1” kan släckt tillstånd “s5”, rött “s0” och grönt “s3” nås. Då trafikljuset lyser gult i “s2” kan tillståndet rött “s0”, grönt “s3” och släckt “s5” nås. I tillståndet grönt kan det stå still, gå till gult “s2” eller släckas “s5”. Vid tekniska problem kan det blinka gult “s4”, från detta tillstånd kan endast släckt “s5” nås direkt. Då trafikljuset är släckt “s5” och ska tändas kan rött “s0” och blinkande gult “s4” nås som nästkommande tillstånd. Genom att kombinera dessa övergångar mellan tillstånden till stigar kan trafikljusets alla sekvenser skapas.
 
 Egenskperna i tillstånden är: \textit{r = rött, y = gult, g = grönt, o = släckt och f = blinkande}.
 
-BILD
+\begin{figure}[hb]
+\includegraphics[width=\textwidth]{states.eps}
+\caption{Tillståndsgraf}
+\label{fig:ctl-states}
+\end{figure}
+
+För modellen $\mathcal{M}$ = (\textit{S},\textrightarrow,\textit{L}) är tillståndsmängden \textit{S}:
+
+\begin{tabbing}
+\textit{S} = \= \textbraceleft \textit{s0,s1,s2,s3,s4,s5}\textbraceright\\
+\end{tabbing}
+
+Transitionsrelationen \textrightarrow\ som beskriver alla grannar: 
+\begin{tabbing}
+\textrightarrow\ = \= \textbraceleft (\textit{s0,s0}),(\textit{s0,s1}),(\textit{s0,s5}),\\
+\> (\textit{s1,s0}),(\textit{s1,s3}),(\textit{s1,s5}),\\
+\> (\textit{s2,s0}),(\textit{s2,s3}),(\textit{s2,s5}),\\
+\> (\textit{s3,s2}),(\textit{s3,s3}),(\textit{s3,s5}),\\
+\> (\textit{s4,s4}),(\textit{s4,s5}),\\
+\> (\textit{s5,s0}),(\textit{s5,s4}),(\textit{s5,s5})\textbraceright\\
+\end{tabbing}
+
+Sanningstilldelningen L som beskriver egenskaperna som finns i varje tillstånd:
+\begin{tabbing}
+\textit{L} = \textbraceleft\
+\textit{s0}:\textbraceleft
+\textit{r}\textbraceright, 
+\textit{s1}:\textbraceleft 
+\textit{r,y}\textbraceright, 
+\textit{s2}:\textbraceleft 
+\textit{y}\textbraceright, 
+\textit{s3}:\textbraceleft 
+\textit{g}\textbraceright, 
+\textit{s4}:\textbraceleft 
+\textit{y,f}\textbraceright, 
+\textit{s5}:\textbraceleft 
+\textit{o}\textbraceright\ \textbraceright
+\end{tabbing}
+
+Denna modell översattes till lämplig listsruktur som de övriga testerna för att fungera med den i prolog implementerade beviskontrolleraren.
+\begin{tabbing}
+Transitionsrelationen (\textit{T}):
+[\=[\textit{s0}, [\textit{s0, s1 ,s5}]],\\
+\>[\textit{s1}, [\textit{s0, s3, s5}]],\\
+\>[\textit{s2}, [\textit{s0, s1, s3, s5}]],\\
+\>[\textit{s3}, [\textit{s3, s2, s5}]],\\
+\>[\textit{s4}, [\textit{s4, s5}]],\\
+\>[\textit{s5}, [\textit{s5, s0, s4, s5}]]].\\
+\end{tabbing}
+
+\begin{tabbing}
+Sanningstilldelningen (\textit{L}):
+[\=[\textit{s0}, [\textit{r}]],\\
+\>[\textit{s1}, [\textit{r,y}]],\\
+\>[\textit{s2}, [\textit{y}]],\\
+\>[\textit{s3}, [\textit{g}]],\\
+\>[\textit{s4}, [\textit{y,f}]],\\
+\>[\textit{s5}, [\textit{o}]]].\\
+\end{tabbing}
