@@ -65,7 +65,7 @@ tidigare har besökts. I nästa steg kontrollerar den vilka grannar \textit{S} h
 någon av tillståndets \textit{S} grannar evalueras till sant. Till echeck skickas även en lista innehållandes tidigare besökta tillstånd där nuvarande tillståndet \textit{S} läggs till. Detta uppfyller
 kraven för EF2.
 
-De resterande reglerna från figur~\ref{fig:ctl-regler} implementerades på liknande sätt och dessa kan ses i den bifogade koden under kapitel~\ref{bilagor}.
+De resterande reglerna från figur~\ref{fig:ctl-regler} implementerades på liknande sätt och dessa kan ses i den bifogade koden under kapitel~\ref{sub:programkod}.
 
 \subsection{Modell}\label{sub:modell}
 
@@ -136,4 +136,4 @@ Sanningstilldelningen (\textit{L}):
 \end{tabbing}
 
 För denna modell skapades två stycken CTL-formler, en som stämmer och en som inte stämmer.
-Formeln \texttt{ef(ag(ex(o)))} är korrekt och innebär: "det finns en stig där det så småningom alltid finns en stig där det i något nästa tillstånd gäller att trafikljuset är avstängt", dvs. Var vi än är kan trafikljuset på något sätt stängas av.
+Formeln \texttt{ef(ag(ex(o)))} är korrekt och innebär: "det finns en stig där det så småningom alltid finns en stig där det i något nästa tillstånd gäller att trafikljuset är avstängt", dvs. Var vi än är kan trafikljuset på något sätt stängas av. Den formel som är felaktig \texttt{and(r,ax(g))} innebär: det finns ett tillstånd där bara rött gäller och i nästa tillstånd gäller bara grönt. Detta betyder att man skulle kunna gå direkt från rött till grönt vilket inte stämmer då den enda vägen dit är via tillståndet då både röd och gul signal ges.
