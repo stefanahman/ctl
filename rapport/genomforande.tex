@@ -48,11 +48,8 @@ check(T, L, S, U, ef(X)) :-
 	member([S, Srest], T),
 	echeck(T, L, Srest, [S|U], ef(X)).
 \end{lstlisting}
-
-
 \end{minipage}
 \end{center}
-
 
 Då check stötte på \texttt{ef(X)} försökte den först med implementationen EF1 och
 sedan om den evaluerades till false försökte den med EF2.
@@ -75,7 +72,7 @@ I tillståndet “s0” kan trafikljuset lysa konstant rött, släckas “s5” 
 
 Detta beskrivs i figur~\ref{fig:ctl-states} där egenskperna i tillstånden är: \textit{r = rött, y = gult, g = grönt, o = släckt och f = blinkande}.
 
-\begin{figure}[here]
+\begin{figure}[ht]
 \includegraphics[width=\textwidth]{states.eps}
 \caption{Tillståndsgraf}
 \label{fig:ctl-states}
