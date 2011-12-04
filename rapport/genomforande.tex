@@ -1,19 +1,18 @@
 \section{Genomförande}
-Modellprovaren skrevs i prolog då det är ett lämpligt programmeringsspråk för bevissökning. De befintliga reglerna för CTL implementerades. Vissa av reglerna kräver variabelt antal premisser och detta måste hanteras av programmet. Implementationen av reglerna och modellprovaren gås igenom i kapitel~\ref{modellprovaren}.
+Modellprovaren skrevs i prolog då det är ett lämpligt programmeringsspråk för bevissökning. De befintliga reglerna för CTL implementerades. Vissa av reglerna kräver variabelt antal premisser och detta måste hanteras av programmet. Implementationen av reglerna och modellprovaren gås igenom i kapitel~\ref{sub:modellprovaren}. I kapitel~\ref{sub:modell} beskrivs vår egenvalda modell som föreställer ett trafikljus.
 
 \begin{figure}[hb]
 \includegraphics[width=\textwidth]{formulas.eps}
 \caption{Regler för CTL}
 \label{fig:ctl-regler}
 \end{figure}
-\subsection{Modellprovaren}\label{modellprovaren}
+\subsection{Modellprovaren}\label{sub:modellprovaren}
 
 För att kunna testa modellprovaren fanns flertalet tester att tillgå som bestod av en liststruktur för att beskriva tillståndens egenskaper och grannar, detta beskrivs tydligare under Modell.
 Programmet skrevs så att en funktion “check” anropades med följande inparametrar:
 
 \begin{center}
 \begin{minipage}{0.75\textwidth}
-
 \texttt{check(T, L, S, U, F)}
 
 \texttt{T - Alla tillstånd och dess grannar i listform}
@@ -66,3 +65,6 @@ någon av tillståndets \textit{S} grannar evalueras till sant. Till echeck skic
 kraven för EF2.
 
 De resterande reglerna från figur~\ref{fig:ctl-regler} implementerades på liknande sätt och dessa kan ses i den bifogade koden under kapitel~\ref{bilagor}.
+
+\subsection{Modell}\label{sub:modell}
+
