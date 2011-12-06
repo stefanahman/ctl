@@ -11,10 +11,18 @@
 
 % title page material
 \documentclass[11pt,a4paper,oneside,pdftex]{article}
-\usepackage[utf8]{inputenc}
-\usepackage{amssymb}
+
 \usepackage{listings}
 \usepackage{textcomp}
+\usepackage{hyperref}
+
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
 
 % Code listings
 \lstset{ %
@@ -39,8 +47,6 @@ escapeinside={\%*}{*)},         % if you want to add a comment within your code
 morekeywords={*,...}            % if you want to add more keywords to the set
 }
 
-
-\title{Laboration 2: Modellprovning för CTL}
 \input{authors.tex}
 \date{\today}  % static date of your choice, and an automated revision date
 
@@ -55,6 +61,8 @@ morekeywords={*,...}            % if you want to add more keywords to the set
 \setlength{\parskip}{0.08in}
 
 \graphicspath{{./images/}}
+
+\title{Laboration 2: Modellprovning för CTL}
 
 %%%%%%% DOCUMENT BEGIN
 \begin{document}
