@@ -80,11 +80,18 @@ Detta beskrivs i figur~\ref{fig:ctl-states} där egenskperna i tillstånden är:
 
 För modellen $\mathcal{M}$ = (\textit{S},\textrightarrow,\textit{L}) är tillståndsmängden \textit{S}:
 
+\begin{center}
+\begin{minipage}{0.0\textwidth}
 \begin{tabbing}
 \textit{S} = \= \textbraceleft \textit{s0,s1,s2,s3,s4,s5}\textbraceright\\
 \end{tabbing}
+\end{minipage}
+\end{center}
 
-Transitionsrelationen \textrightarrow\ som beskriver alla grannar: 
+Transitionsrelationen \textrightarrow\ som beskriver alla grannar:
+
+\begin{center}
+\begin{minipage}{0.0\textwidth}
 \begin{tabbing}
 \textrightarrow\ = \= \textbraceleft (\textit{s0,s0}),(\textit{s0,s1}),(\textit{s0,s5}),\\
 \> (\textit{s1,s0}),(\textit{s1,s3}),(\textit{s1,s5}),\\
@@ -93,8 +100,12 @@ Transitionsrelationen \textrightarrow\ som beskriver alla grannar:
 \> (\textit{s4,s4}),(\textit{s4,s5}),\\
 \> (\textit{s5,s0}),(\textit{s5,s4}),(\textit{s5,s5})\textbraceright\\
 \end{tabbing}
+\end{minipage}
+\end{center}
 
 Sanningstilldelningen L som beskriver egenskaperna som finns i varje tillstånd:
+\begin{center}
+\begin{minipage}{0.0\textwidth}
 \begin{tabbing}
 \textit{L} = \textbraceleft\
 \textit{s0}:\textbraceleft
@@ -110,6 +121,8 @@ Sanningstilldelningen L som beskriver egenskaperna som finns i varje tillstånd:
 \textit{s5}:\textbraceleft 
 \textit{o}\textbraceright\ \textbraceright
 \end{tabbing}
+\end{minipage}
+\end{center}
 
 Denna modell översattes till lämplig listsruktur som de övriga testerna för att fungera med den i prolog implementerade beviskontrolleraren.
 \begin{tabbing}
