@@ -5,13 +5,11 @@
 \begin{enumerate}
 \item Vad skiljer labbens version av CTL från bokens version?
 
-Labbens implementation av CTL kan inte hantera negation av CTL-formler, “U” Until och
-“implicerar” som tas upp i \cite{huth}.
+Labbens implementation av CTL kan inte hantera negation av CTL-formler och “U” Until som tas upp i \cite{huth}.
 
 \item Hur kan man utöka modellprovaren så att den hanterar bokens CTL?
 
-För att kunna hantera negerade formler krävs det att De Morgans lagar implementeras i
-modelltestaren. 
+För att kunna hantera negerade formler krävs det att antingen ekvivalenter bestäms med De Morgans lagar eller att koden skrivs om så den kan hantera negerade bevis med neg(X), då X kan vara en konstant eller en formel. För until får det implementeras att en formel ska gälla fram tills att ett villkor är uppfyllt.
 
 \item Hur hanterade ni variabelt antal premisser (som i AX-regeln)?
 
